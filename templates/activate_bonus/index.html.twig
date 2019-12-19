@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ActivateBonusController!{% endblock %}
+
+{% block body %}
+    <h1>Bonus activated!</h1>
+
+    <img height="64" src="{{ asset('assets/images/icons/012-star.png') }}" />
+<br />
+<br />
+    <p>Your bonus is active, thanks to the the awesome people of <strong>{{ team.name }}</strong></p>
+
+{% endblock %}

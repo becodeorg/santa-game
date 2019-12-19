@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ question.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ question.name }}</h1>
+
+    <p>You gave a wrong answer!</p>
+
+    <p id="countdown-banner">Wait <span id="countdown">{{seconds}}</span> seconds</p>
+
+    <p>Before you can try again!</p>
+
+    <script>
+        var seconds = document.getElementById("countdown").textContent;
+        var countdown = setInterval(function() {
+            seconds--;
+            document.getElementById("countdown").textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
+
+{% endblock %}

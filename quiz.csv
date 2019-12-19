@@ -1,0 +1,73 @@
+Name,Correct,Answer1,Answer2,Answer3,Answer4,Points,Bonus
+How do you style an element that only occurs once on a page?,1,id,class,text,name,1,0
+How can you stop an element from floating?,2,margin,float,clear,padding,1,0
+How can put one element above another in css?,1,z-index,x-index,y-index,position,1,0
+How can you wrap text around an image?,1,float,align,push,wrap,1,0
+How can you select all disabled submit buttons on a page?,4,submit=disabled,input[type=submit]=disabled,submit:disabled,input[type=submit]:disabled,1,0
+How can put the text writing direction in css from right to left? (no semicolon),direction: rtl,,,,,2,0
+"We want to show an Arrow as cursor, which is the correct CSS for this?",4,default,arrow,clicker,pointer,1,0
+How can we a border around an empty <td>?,1,empty-cell,void-cell,no-content-allowed,filling,1,0
+"What is the result of ""test""/2 in JS",2,Fatal exception,NaN,0,FALSE,1,0
+What tag can you use to include a css stylesheet in HTML?,link,,,,,1,0
+Which CSS property is used to control the text size of an element ?,font-size,,,,,2,0
+Which of the following is NOT a valid font format in css?,4,pc,rem,em,ff,2,0
+Give the default value for the position attribute,relative,,,,,2,0
+How to remove the default underline of links?,3,border-size: 0px,border-bottom: none,text-decoration: none,underline: none,1,0
+How many scopes are there in Javascript?,3,,,,,3,0
+Magic numbers: hot or not?,not,,,,,1,0
+What is the difference between an Abstract class and an Interface?,1,Abstract class can have implementation,Interfaces can have implementation,Abstract class cannot be type hinted,Interfaces cannot be type hinted,5,1
+Give the full name for DNS,Domain Name Server,,,,,2,0
+How can you overwrite the content of a div#test?,3,document.getElementById('#test').innerHtml,document.getElementById('test').innerHTML,document.getElementById('test').innerHtml,document.getElementById('#test').content,2,0
+<?php $a = null; $b = isset($a) . empty($a) + isset($a); What is b?,2,,,,,2,0
+Which of the following does NOT convert a string to an integer in JS?,2,"Number(""5"")","Int(""5"")","parseInt(""5"")"," + ""5""",3,0
+"var foo = function foo() {
+    console.log(foo === foo);  
+};
+foo();",1,TRUE,FALSE,ReferenceError,Fatal exception,4,0
+"function aaa() {
+    return
+    {
+        test: 1
+    };
+}
+console.log(typeof aaa());",4,function,number,object,undefined,4,0
+What is the difference between a Factory Design Pattern and a Builder?,,A factory connects with external API,A builder connects to external API,A builder can return different objects based on arguments,A factory can return different objects based on arguments,4,1
+"Number(""1"") - 1 == 0;",1,TRUE,FALSE,NAN,TypeError,2,0
+What is a hash table?,2,A table that is high,An array with quick lookup as the key,An encrypted array,A registry for passwords,3,0
+(true + false) > 2 + true;,2,TRUE,FALSE,TypeError,NaN,3,0
+HTML stands for?,Hyper Text Markup Language,,,,,2,0
+What is better for semantics a <b> or <strong>?,1,strong,b,none,,1,0
+How do you create an email link?,3,"<mail to="""">","<a mailto="""">","<a href=""mailto:"">","<a href="""" target=""_outlook"">",1,0
+Which is invalid css?,4,li + li,a ~ a ,li > a,li @ a,3,0
+Which is an invalid css selector?,3, :first-child,:lang,:hidden,:read-only,3,0
+Which is an invalid css selector?,3,:link,:disabled,:wrong-spelling,:checked,3,0
+Which is an invalid css selector?,3,:hover,:focus-within,:broken,:optional,3,0
+Which is an invalid css selector?,3,:first-child,:indeterminate,:dragged,:active,3,0
+Which of the following is not real in css?,3,pseudo-selectors,pseudo-elements,pseudo-nodes,,2,0
+What is a mixin?,1,A function in SASS,A combined class in JS,A variable in sass,a function to add 2 variables in sass,3,0
+"function bar() {
+    return foo;
+    foo = 10;
+    function foo() {}
+    var foo = '11';
+}
+alert(typeof bar());",2,number,function,undefined,error,4,1
+Which of the following is NOT a php framework?,4,CakePHP,Zend framework,Symfony,Alchemy,2,0
+Which of the following is NOT a JS framework?,3,Sencha,Jquery,Laravel,React,2,0
+Which of the following is an ORM?,2,Angular,Doctrine,Symfony,React,2,0
+"What does ""final"" do in php?",,Kills the script after this line,Makes it impossible to extend a class,Releases the memory after loading this script,"Overwrites all classes with the same name, even ones in different namespaces",4,1
+Which option do you need to add a new line in a file in php with file_put_contents,FILE_APPEND,,,,,2,0
+How to prevent SQL injection in PHP?,2,use addslashes,Use PDO,Enabled safe_mode in mysql,Use INSERT SAFEMODE in sql,3,0
+Which function in PHP prevents a site defacement attack? no () needed,htmlspecialchars,,,,,3,0
+"What is the most secure: POST, PUT or GET?",3,post,get,All are unsafe,put,1,0
+"What are the following things: utf-8, latin1, ISO 8859",3,Harry potter spells,Encryptions,Encodings,Binary streams,2,0
+"Which function do you need to drop the first 2 chars of this string: ""안녕하세요""",mb_substr,,,,,5,1
+"""1"" - - ""1"";",2,,,,,2,0
+Which attribute returns the length of an array in JS - array.???,length,,,,,2,0
+Which method returns the length of an array in PHP?  no () needed,count,,,,,2,0
+What is the difference between require() and include() in PHP?,1,Require will give a fatal error when it does not find the file,Include will give a fatal error when it does not find the file,Require is twice as fast,Include is twice as fast,2,0
+Which command can you use to revert a commit?,1,git revert,git checkout,git reset,git stash,3,0
+Which command can you use to to restore a file before commiting?,2,git revert,git checkout,git reset,git stash,3,0
+What does cherry-pick -n do?,1,Does not automaticly commit the cherry pick,Creates the cherry pick on a new branch,Merges 2 cherry picks,Revert the last cherry pick,4,0
+What does git add . -p do?,3,Makes a backup before adding,Adds and commits the file immediately,Allows you to only add certain parts of files,Removes comments in file beforing adding,3,0
+"What is the second way of merge a branch, outside git merge? (only command, without git)",rebase,,,,,5,1

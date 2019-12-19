@@ -1,0 +1,7 @@
+{% for question in questions %}
+    {% set url = absolute_url(path('question',
+        {'hash' : question.getHash(), 'question': question.id})) %}
+    <a href="{{ url }}">
+    <img src="{{ qr_code_data_uri(url, { writer: 'svg', size: 150 }) }}" />
+    </a>
+{% endfor %}
