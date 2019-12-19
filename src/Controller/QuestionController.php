@@ -23,6 +23,11 @@ class QuestionController extends AbstractController
             die('Stop tampering with the hash, Badr!');
         }
 
+        $selfUri = $this->generateUrl('question', [
+            'question' => $question->getId(),
+            'hash' => $hash
+        ]);
+
         try {
             $team = $this->getTeam($request);
 
@@ -41,11 +46,6 @@ class QuestionController extends AbstractController
             }
 
             if (isset($_POST['answer'])) {
-                $selfUri = $this->generateUrl('question', [
-                    'question' => $question->getId(),
-                    'hash' => $hash
-                ]);
-
                 if (mb_strtolower(trim($question->getAnswer())) === mb_strtolower(trim($_POST['answer']))) {
 
                     $team->addPoints($question);
