@@ -81,7 +81,7 @@ $b = &$a;
 $b = ""2$b"";",21,,,,,5,1
 "var_dump('0123' == 123);
 var_dump(0123 == 123);
-var_dump('0123' === 123);",4,101,110,111,100,,
+var_dump('0123' === 123);",4,101,110,111,100,4,1
 "var_dump(implode('',array_merge(['a','b'] + ['c'], ['d','e']) + ['f' => 'g']));",abdeg,,,,,5,1
 "(""ba"" + ""c""/2 + ""a"").toLowerCase()",banana,,,,,4,0
 Where does a SESSION variable store its data?,2,In a cookie,On the server,In local memory,In HTTP headers,2,0
