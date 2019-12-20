@@ -103,6 +103,15 @@ h2 {
     margin-bottom: 8px;
 }
 
+#select-team select {
+    color: black;
+}
+
+#select-team button {
+    background-color: white;
+    color: black;
+}
+
 #countdown-banner {
     text-align: center;
     font-size: 3em;
