@@ -63,6 +63,11 @@ class Question
      */
     private $teams;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $grinchActive = false;
+
     public function __construct(string $name, int $points, bool $bonus, string $answer)
     {
         $this->name = $name;
@@ -202,6 +207,18 @@ class Question
             $this->teams->removeElement($team);
             $team->removeQuestionsAnswered($this);
         }
+
+        return $this;
+    }
+
+    public function getGrinchActive(): ?bool
+    {
+        return $this->grinchActive;
+    }
+
+    public function setGrinchActive(bool $grinchActive): self
+    {
+        $this->grinchActive = $grinchActive;
 
         return $this;
     }

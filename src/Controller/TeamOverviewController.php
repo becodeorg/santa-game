@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TeamOverviewController extends AbstractController
 {
     /**
-     * @Route("/teams", name="team_overview")
+     * @Route("/", name="team_overview")
      */
     public function index()
     {

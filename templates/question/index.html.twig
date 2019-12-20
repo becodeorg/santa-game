@@ -3,10 +3,9 @@
 {% block title %}{{ question.name }}{% endblock %}
 
 {% block body %}
-    <h1>{{ question.name }}</h1>
-    <p>{{ question.description }}</p>
+    <h1>{{ question.name | nl2br }}</h1>
 
-    <p>Santa will give you the following rewards for answering this question:</p>
+    <p>Santa will give you the following rewards for answering this question: GESPREK</p>
 
     {% set points = question.points %}
     {% if team.activeBonus %}
@@ -15,7 +14,7 @@
         Active bonus: your presents are doubled!
     {% endif %}
 
-    <p>
+    <p style="margin-top: 6px;">
         {% if question.bonus %}
             <img height="64" src="{{ asset('assets/images/icons/012-star.png') }}" title="Win a score multiplier!" />
         {% endif %}
@@ -38,7 +37,6 @@
             </button>
         </div>
     </form>
-
 
 
 {% endblock %}

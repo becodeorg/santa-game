@@ -50,6 +50,11 @@ class Team
      */
     private $passiveBonus;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stolenGifts = 0;
+
     public function __construct()
     {
         $this->questionsAnswered = new ArrayCollection();
@@ -217,5 +222,37 @@ class Team
     public function getHash() : string
     {
         return md5($this->id . self::SECRET);
+    }
+
+    public function getStolenGifts(): ?int
+    {
+        return $this->stolenGifts;
+    }
+
+    public function setStolenGifts(int $stolenGifts): self
+    {
+        $this->stolenGifts = $stolenGifts;
+
+        return $this;
+    }
+
+    public function stealGift() : int
+    {
+        $amount = rand(1, min(5, $this->points));
+
+        $this->points = $amount;
+        $this->stolenGifts += $amount;
+
+        return $amount;
+    }
+
+    public function returnGift(int $amount)
+    {
+        if($amount > $this->stolenGifts) {
+            $amount = $this->stolenGifts;
+        }
+
+        $this->points += $amount;
+        $this->stolenGifts -= $amount;
     }
 }

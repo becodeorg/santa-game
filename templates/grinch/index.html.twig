@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grinch control panel{% endblock %}
+
+{% block body %}
+    <h1>Grinch control board</h1>
+    <p>Give back presents!</p>
+
+    <table id="team-table" width="100%">
+        <thead>
+        <tr>
+            <th>Team</th>
+            <th width="20%">Presents</th>
+            <th width="20%">Stolen Presents</th>
+            <td>Return gift</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            {% if team.stolenGifts > 0 %}
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.points }} <img src="{{ asset('assets/images/icons/026-gift.png') }}" height="32" />
+                    <td>{{ team.stolenGifts }}</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="team" value="{{ team.id }}" >
+                            <input type="number" name="amount" style="color: black;" placeholder="Amount to return"/>
+                            <input type="submit" value="Return gift" style="background-color: yellow; color: black;">
+                        </form>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

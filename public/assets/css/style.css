@@ -53,6 +53,8 @@ body {
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 600px;
+    overflow: hidden;
 }
 
 footer {
@@ -127,8 +129,12 @@ button.glow {
     border-radius: 50%;
     font-size: 30px;
     color: #666;
+    color: #BC5F24;
     transition: .5s;
     cursor: pointer;
+
+    margin: 0 auto;
+    border: 0px;
 }
 
 button.glow:before {
@@ -145,16 +151,19 @@ button.glow:before {
     z-index: -1;
 }
 
-button.glow:hover:before {
-    transform: scale(1.2);
+button.glow:before {
     box-shadow: 0 0 15px #d35400;
     filter: blur(3px);
 }
 
-button.glow:hover {
+button.glow {
     color: #ffa502;
     box-shadow: 0 0 15px #d35400;
     text-shadow: 0 0 15px #d35400;
+}
+
+button.glow:hover {
+    transform: scale(1.2);
 }
 
 #passive-bonus-info {

@@ -37,6 +37,19 @@ class QuestionController extends AbstractController
                 ]);
             }
 
+            if($question->getGrinchActive()) {
+                $stolenGifts = $team->stealGift();
+
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->render('question/grinch-active.html.twig', [
+                    'question' => $question,
+                    'team' => $team,
+                    'stolenGifts' => $stolenGifts
+                ]);
+            }
+
+
             $seconds = $team->canAnswerInSeconds($question);
             if ($seconds > 0) {
                 return $this->render('question/wrong-answer.html.twig', [
