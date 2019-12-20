@@ -70,4 +70,60 @@ Which command can you use to revert a commit?,1,git revert,git checkout,git rese
 Which command can you use to to restore a file before commiting?,2,git revert,git checkout,git reset,git stash,3,0
 What does cherry-pick -n do?,1,Does not automaticly commit the cherry pick,Creates the cherry pick on a new branch,Merges 2 cherry picks,Revert the last cherry pick,4,0
 What does git add . -p do?,3,Makes a backup before adding,Adds and commits the file immediately,Allows you to only add certain parts of files,Removes comments in file beforing adding,3,0
-"What is the second way of merge a branch, outside git merge? (only command, without git)",rebase,,,,,5,1
+"What is the second way of merge a branch, outside git merge? (only command, without git)",rebase,,,,,4,1
+What design pattern is used to bind events in Javascript?,,Strategy,Singleton,Observer,Decorator,4,0
+What is the template engine of Symfony?,twig,,,,,3,0
+How do you call a comment in Symfony that actually configures settings?,annotation,,,,,3,0
+echo 'a' . print 'b' ;,1,ba1,ab,ab1,Fatal error,3,0
+"What is b?
+$a = '1';
+$b = &$a;
+$b = ""2$b"";",21,,,,,5,1
+"var_dump('0123' == 123);
+var_dump(0123 == 123);
+var_dump('0123' === 123);",4,101,110,111,100,,
+"var_dump(implode('',array_merge(['a','b'] + ['c'], ['d','e']) + ['f' => 'g']));",abdeg,,,,,5,1
+"(""ba"" + ""c""/2 + ""a"").toLowerCase()",banana,,,,,4,0
+Where does a SESSION variable store its data?,2,In a cookie,On the server,In local memory,In HTTP headers,2,0
+"$number = false;
+echo ($number === 0 ? 'blue' : ($number > 0 ? 'green' : 'red'));
+",3,blue,green,red,FALSE,3,0
+How do you remove a file with php?,,remove_file,unlink,unset,delete,,0
+How do you pass the output of a command to a next command?,2,>,|,WRITE,->,3,0
+"$a = 'b';
+$b = 'a';
+echo $$b;",b,,,,,3,0
+How you can write the output of ANY command to a file on the command line?,1,>,|,WRITE,->,3,0
+How do you write an HTML comment?,1,<!--,/*,//,#,1,0
+Do all HTML tags come in a pair?,2,Yes,No,,,1,0
+Do events in JS bubble up or down?,Up,Up,Down,Js does not have event bubbling,Both,3,0
+What is the anchor part of an url?,1,#example,?example=true,example.com,:80,1,0
+"Write a 1 line function to count all values of the string ""1,2,3,4,5,6,7"" in Php","array_sum(explode(',',$input))",,,,,8,1
+What is the protocol of an url?,1,http,?example=true,example.com,:80,1,0
+"Which access level gives access to childclasses, but not the outside world?",4,public,constant,private,protected,4,1
+What does MVC mean?,Model View Controller,,,,,2,0
+Where should most of your code go in an MVC?,1,Model,VIew,Controller,Configuration,3,0
+Where do you place HTML in an MVC?,2,Model,VIew,Controller,Configuration,3,0
+What is Varnish?,1,A caching layer,A database analyser,An IDE,A JS framework,3,0
+"What does not make sense in this row? Composer, npm, apt-get, python",4,Composer,npm,apt-get,docker,3,0
+What is the current PHP version?,7.4,,,,,3,0
+What is the default shortcut to rename variables in phpstorm?,1,shift + F6,ctrl + F8,alt + F2,ctrl + R,2,0
+What is the default display state of an <a>,3,block,block-inline,inline,relative,2,0
+What is the default display state of an <h1>,1,block,block-inline,inline,relative,2,0
+Which tag can be used for more info about abbreviations?,1,<abbr>,<short>,<code>,<span>,1,0
+What shortcut can you use in PHP to get a searchbar anywhere in your Project?,1,shift + shift,alt + shift,CTRL + J,CTRL + shift + j,2,0
+What is the command to enable a vhost?,a2enmod,,,,,3,0
+"What does not fit in this list: svn, git, vpn, cvs",,svn,git,vpn,csv,2,0
+What attribute contains the source of an <img>,1,src,link,href,source,1,0
+How do you make a word italique?,1,<em>,<it>,<s>,<v>,1,0
+How do we call a field in a database that refers to the id of another table?,2,Primary key,Foreign key,Index,Constraint,,0
+Type the full apt-get command to install php 7.3 (exclude sudo),apt-get install php7.3,,,,,5,1
+What is Unit Testing?,,Testing small blocks of code manually,Testing the connection between code manually,Testing small blocks of code automaticly,Testing the connection between code automaticly,,
+How can you give a mysql user access to a db?,1,GRANT,GIVE PRIVILIGE,INSERT,USER_UPDATE,4,1
+What is polymorphism?,2,A difficult word,Two objects with the same interface are functionally interchangable,Objects that change their methods based on params in the constructor,The output of a builder design pattern,5,1
+"Give the full command to drop the database ""becode"" (without ;)",drop database becode,,,,,3,0
+What is a good default encoding for a mysql database?,1,utf8,latin1,anscii,utf64,4,0
+"Als antwerpen stad is, wat is dan de rest?",Parking,,,,,1,0
+What is the file extension of a markdown file?,1,.md,.html,.txt,.markdown,1,
+Do you deserve a christmas golden star?,yes,,,,,0,1
+How do you create a hard space into HTML?,&nbsp;,,,,,3,0
