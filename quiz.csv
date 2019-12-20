@@ -88,7 +88,7 @@ Where does a SESSION variable store its data?,2,In a cookie,On the server,In loc
 "$number = false;
 echo ($number === 0 ? 'blue' : ($number > 0 ? 'green' : 'red'));
 ",3,blue,green,red,FALSE,3,0
-How do you remove a file with php?,,remove_file,unlink,unset,delete,,0
+How do you remove a file with php?,2,remove_file,unlink,unset,delete,3,0
 How do you pass the output of a command to a next command?,2,>,|,WRITE,->,3,0
 "$a = 'b';
 $b = 'a';
@@ -116,14 +116,14 @@ What is the command to enable a vhost?,a2enmod,,,,,3,0
 "What does not fit in this list: svn, git, vpn, cvs",,svn,git,vpn,csv,2,0
 What attribute contains the source of an <img>,1,src,link,href,source,1,0
 How do you make a word italique?,1,<em>,<it>,<s>,<v>,1,0
-How do we call a field in a database that refers to the id of another table?,2,Primary key,Foreign key,Index,Constraint,,0
+How do we call a field in a database that refers to the id of another table?,2,Primary key,Foreign key,Index,Constraint,3,0
 Type the full apt-get command to install php 7.3 (exclude sudo),apt-get install php7.3,,,,,5,1
-What is Unit Testing?,,Testing small blocks of code manually,Testing the connection between code manually,Testing small blocks of code automaticly,Testing the connection between code automaticly,,
+What is Unit Testing?,3,Testing small blocks of code manually,Testing the connection between code manually,Testing small blocks of code automaticly,Testing the connection between code automaticly,3,0
 How can you give a mysql user access to a db?,1,GRANT,GIVE PRIVILIGE,INSERT,USER_UPDATE,4,1
 What is polymorphism?,2,A difficult word,Two objects with the same interface are functionally interchangable,Objects that change their methods based on params in the constructor,The output of a builder design pattern,5,1
 "Give the full command to drop the database ""becode"" (without ;)",drop database becode,,,,,3,0
 What is a good default encoding for a mysql database?,1,utf8,latin1,anscii,utf64,4,0
 "Als antwerpen stad is, wat is dan de rest?",Parking,,,,,1,0
-What is the file extension of a markdown file?,1,.md,.html,.txt,.markdown,1,
+What is the file extension of a markdown file?,1,.md,.html,.txt,.markdown,1,0
 Do you deserve a christmas golden star?,yes,,,,,0,1
 How do you create a hard space into HTML?,&nbsp;,,,,,3,0
