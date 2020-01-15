@@ -16,7 +16,6 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font-family: 'Mountains of Christmas', cursive;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -46,7 +45,7 @@ table {
 /**actual css */
 * {
     color: whitesmoke;
-    font-family: 'Mountains of Christmas', cursive;
+
 }
 
 body {

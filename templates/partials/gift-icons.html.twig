@@ -1,5 +1,5 @@
 {% set icons = ['026-gift.png', '028-gift.png', '021-gifts.png'] %}
-
+    <div class="scoreIcons">
     {% for i in range(1, points) %}
         {% if i % 3 == 0 %}
             <img src="{{ asset('assets/images/icons/'~icons[0]) }}" height="64" />
@@ -9,3 +9,4 @@
             <img src="{{ asset('assets/images/icons/'~icons[2]) }}" height="64" />
         {% endif %}
     {% endfor %}
+    </div>
