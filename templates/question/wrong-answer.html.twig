@@ -3,17 +3,20 @@
 {% block title %}{{ question.name }}{% endblock %}
 
 {% block body %}
+
+    <h3>Logged in as team : {{ team.name }} - <a href="{{ path('logout') }}">Logout</a></h3>
+
     <h1>{{ question.name }}</h1>
 
-    <p>You gave a wrong answer!</p>
+        <p>You gave a wrong answer!</p>
 
-    <p id="countdown-banner">Wait <span id="countdown">{{seconds}}</span> seconds</p>
+        <p id="countdown-banner">Wait <span id="countdown">{{ seconds }}</span> seconds</p>
 
-    <p>Before you can try again!</p>
+        <p>Before you can try again!</p>
 
     <script>
-        var seconds = document.getElementById("countdown").textContent;
-        var countdown = setInterval(function() {
+        let seconds = document.getElementById("countdown").textContent;
+        let countdown = setInterval(function () {
             seconds--;
             document.getElementById("countdown").textContent = seconds;
             if (seconds <= 0) {

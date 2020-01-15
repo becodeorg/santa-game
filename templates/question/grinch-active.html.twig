@@ -3,18 +3,24 @@
 {% block title %}{{ question.name }}{% endblock %}
 
 {% block body %}
-    <h1>The grinch strikes back!</h1>
+    <section class="container" id="content">
 
-    <p>The grinch corrupted this question for a while, and stole <b>{{ stolenGifts }} <img src="{{ asset('assets/images/icons/026-gift.png') }}" height="16" /></b> from you!</p>
+        <h1>The grinch strikes back!</h1>
 
-    <p>In total the grinch has already stolen <b>{{ team.stolenGifts }} <img src="{{ asset('assets/images/icons/026-gift.png') }}" height="16" />
-        </b> from you! Maybe you should go to his lair and challenge him to a duel?</p>
+        <p>The grinch corrupted this question for a while, and stole <b>{{ stolenGifts }} <img
+                        src="{{ asset('assets/images/icons/026-gift.png') }}" height="16"/></b> from you!</p>
 
-    <br />
-    <br />
+        <p>In total the grinch has already stolen <b>{{ team.stolenGifts }} <img
+                        src="{{ asset('assets/images/icons/026-gift.png') }}" height="16"/>
+            </b> from you! Maybe you should go to his lair and challenge him to a duel?</p>
 
-<center>
-    <img height="200" src="{{ asset('assets/images/grinch.png') }}" alt="Picture of the grinch" />
-</center>
+        <br/>
+        <br/>
+
+        <div class="text-center">
+            <img height="200" src="{{ asset('assets/images/grinch.png') }}" alt="Picture of the grinch"/>
+        </div>
+
+    </section>
 
 {% endblock %}

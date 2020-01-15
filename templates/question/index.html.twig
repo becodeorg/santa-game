@@ -13,13 +13,13 @@
     {% set points = question.points %}
     {% if team.activeBonus %}
         {% set points = question.points * 2 %}
-        <img height="64" src="{{ asset('assets/images/icons/012-star.png') }}"/>
+        <img height="48" src="{{ asset('assets/images/icons/012-star.png') }}"/>
         Active bonus: your presents are doubled!
     {% endif %}
 
     <p style="margin-top: 6px;">
         {% if question.bonus %}
-            <img height="64" src="{{ asset('assets/images/icons/012-star.png') }}" title="Win a score multiplier!"/>
+            <img height="48" src="{{ asset('assets/images/icons/012-star.png') }}" title="Win a score multiplier!"/>
         {% endif %}
 
         {% include 'partials/gift-icons.html.twig' with {'points': points} %}
@@ -28,13 +28,15 @@
     <form method="post" id="question-form">
         {% if question.isMultipleChoice() %}
             {% for key, answer in question.getAnswers() %}
-                <label><input type="radio" name="answer" value="{{ key+1 }}">{{ answer }}</label>
+                <div class="answer rounded border border-light my-1 bg-dark">
+                    <label><input type="radio" name="answer" value="{{ key+1 }}"> {{ answer }}</label>
+                </div>
             {% endfor %}
         {% else %}
             <input type="text" name="answer" class="long-answer" autofocus/>
         {% endif %}
 
-        <div class="send-container">
+        <div class="send-container mt-2">
             <button type="submit" class="glow">
                 Send
             </button>
