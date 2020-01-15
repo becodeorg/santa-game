@@ -47,4 +47,14 @@ class TeamRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLeaders()
+    {
+        return $this->createQueryBuilder('t')
+            ->orderBy('t.points', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

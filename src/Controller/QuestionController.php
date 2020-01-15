@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Domain\Exception\TeamNotFoundException;
 use App\Domain\GetTeam;
 use App\Entity\Question;
+use App\Entity\Team;
 use App\Entity\WrongAnswer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class QuestionController extends AbstractController
 {
@@ -69,9 +71,12 @@ class QuestionController extends AbstractController
 
                     $this->getDoctrine()->getManager()->flush();
 
+                    $teamRanks = $this->getDoctrine()->getRepository(Team::class)->findLeaders();
+
                     return $this->render('question/success.html.twig', [
                         'question' => $question,
                         'team' => $team,
+                        "teamRanks" => $teamRanks
                     ]);
                 } else {
                     $wrongAnswer = new WrongAnswer($team, $question);

@@ -7,6 +7,8 @@
     <p>Correct! You now have <strong>{{ team.points }}</strong> presents!</p>
 
     <br>
+    {% include 'partials/top-three.html.twig' %}
+    <br>
 
     {% if team.passiveBonus %}
         <div id="passive-bonus-info">
