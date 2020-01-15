@@ -3,6 +3,9 @@
 {% block title %}{{ question.name }}{% endblock %}
 
 {% block body %}
+
+    <h3>Logged in as team : {{ team.name }} - <a href="{{ path('logout') }}">Logout</a></h3>
+
     <h1>{{ question.name }}</h1>
     <p>Correct! You now have <strong>{{ team.points }}</strong> presents!</p>
 
@@ -19,4 +22,5 @@
     {% endif %}
 
     {% include 'partials/gift-icons.html.twig' with {'points': team.points} %}
+
 {% endblock %}
