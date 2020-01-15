@@ -1,3 +1,7 @@
-{% for teamRank in teamRanks %}
-    <div>{{ teamRank.name }}</div>
-{% endfor %}
+<h2 class="text-center my-3 font-weight-bolder">Leaderboard</h2>
+<ol class="text-center text-justify">
+    {% for teamRank in teamRanks %}
+        <li class="my-1">{{ loop.index }} - {{ teamRank.name }}</li>
+    {% endfor %}
+</ol>
+
