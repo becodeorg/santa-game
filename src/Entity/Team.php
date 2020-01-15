@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Team
 {
-    const SECRET = 'santaisnotthesameasthesint';
+    private const SECRET = 'santaisnotthesameasthesint';
 
     /**
      * @ORM\Id()
@@ -43,20 +43,27 @@ class Team
     /**
      * @ORM\Column(type="boolean")
      */
-    private $activeBonus;
+    private $activeBonus = false;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $passiveBonus;
+    private $passiveBonus = false;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $stolenGifts = 0;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
+    public function __construct(string $name, string $password)
     {
+        $this->name = $name;
+        $this->password = $password;
         $this->questionsAnswered = new ArrayCollection();
         $this->wrongAnswers = new ArrayCollection();
     }
@@ -90,7 +97,7 @@ class Team
         return $this;
     }
 
-    public function addPoints(Question $question)
+    public function addPoints(Question $question): void
     {
         $points = $question->getPoints();
         if($this->getActiveBonus()) {
@@ -216,7 +223,7 @@ class Team
 
     public function checkHash(string $hash) : bool
     {
-        return $hash == $this->getHash();
+        return $hash === $this->getHash();
     }
 
     public function getHash() : string
@@ -238,7 +245,7 @@ class Team
 
     public function stealGift() : int
     {
-        $amount = rand(1, min(5, $this->points));
+        $amount = random_int(1, min(5, $this->points));
 
         $this->points -= $amount;
         $this->stolenGifts += $amount;
@@ -246,7 +253,7 @@ class Team
         return $amount;
     }
 
-    public function returnGift(int $amount)
+    public function returnGift(int $amount): void
     {
         if($amount > $this->stolenGifts) {
             $amount = $this->stolenGifts;
@@ -254,5 +261,17 @@ class Team
 
         $this->points += $amount;
         $this->stolenGifts -= $amount;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
     }
 }

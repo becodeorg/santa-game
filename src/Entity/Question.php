@@ -11,10 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Question
 {
-    const SECRET = 'jinglemybells';
+    // secret password for question encryption hash
+    private const SECRET = 'jinglemybells';
 
-    const TYPE_SIMPLE = 'SIMPLE';
-    const TYPE_MULTIPLE = 'MULTIPLE';
+    public const TYPE_SIMPLE = 'SIMPLE';
+    public const TYPE_MULTIPLE = 'MULTIPLE';
 
     /**
      * @ORM\Id()
@@ -156,8 +157,8 @@ class Question
 
     public function getAnswers(): ?array
     {
-        $answers = json_decode($this->answers);
-        uksort($answers, function() { return rand() > rand(); });
+        $answers = json_decode($this->answers, true);
+        uksort($answers, static function() { return mt_rand() > mt_rand(); });
         return $answers;
     }
 

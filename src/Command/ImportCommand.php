@@ -43,7 +43,9 @@ class ImportCommand extends Command
 
         $i = 0;
         foreach($questionsRaw AS $data) {
-            if($data['Name'] === '') continue;
+            if($data['Name'] === '') {
+                continue;
+            }
 
             if(!is_numeric($data['Points'])) {
                 var_dump($data);exit;
