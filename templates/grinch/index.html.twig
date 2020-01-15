@@ -5,8 +5,8 @@
 {% block body %}
     <h1>Grinch control board</h1>
     <p>Give back presents!</p>
-
-    <table id="team-table" width="100%">
+<div class="d-flex justify-content-center">
+    <table id="team-table" width="50%">
         <thead>
         <tr>
             <th>Team</th>
@@ -25,7 +25,7 @@
                     <td>
                         <form method="post">
                             <input type="hidden" name="team" value="{{ team.id }}" >
-                            <input type="number" name="amount" style="color: black;" placeholder="Amount to return"/>
+                            <input type="number" class="text-center" name="amount" style="color: black; width: 81px" placeholder="Amount"/>
                             <input type="submit" value="Return gift" style="background-color: yellow; color: black;">
                         </form>
                     </td>
@@ -34,4 +34,6 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
+
 {% endblock %}
