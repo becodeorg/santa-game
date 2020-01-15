@@ -158,8 +158,7 @@ class Question
     public function getAnswers(): ?array
     {
         $answers = json_decode($this->answers, true);
-//        uksort($answers, static function() { return mt_rand() > mt_rand(); });
-        shuffle($answers);
+        uksort($answers, static function() { return mt_rand() > mt_rand(); });
         return $answers;
     }
 

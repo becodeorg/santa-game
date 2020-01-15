@@ -14,12 +14,16 @@
     <br>
 
     {% if team.passiveBonus %}
-        <div id="passive-bonus-info">
+        <div id="passive-bonus-info" class="d-flex justify-content-center flex-column">
             {% set url = absolute_url(path('activate_bonus',
                 {'hash' : team.getHash(), 'givingTeam': team.id})) %}
-            <img src="{{ qr_code_data_uri(url, { writer: 'svg', size: 150 }) }}" style="float: right;"/>
-            <h2>Christmas is about giving</h2>
-            <p>Because you answered a question with a golden star, you can now gift another team a bonus. They will get double the amount of points for their next question!</p>
+          <div class="text-center my-3">
+              <img src="{{ qr_code_data_uri(url, { writer: 'svg', size: 150 }) }}" />
+          </div>
+            <div class="text-center">
+                <h2>Christmas is about giving</h2>
+                <p>Because you answered a question with a golden star, you can now gift another team a bonus. They will get double the amount of points for their next question!</p>
+            </div>
         </div>
     {% endif %}
 
