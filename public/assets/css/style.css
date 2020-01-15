@@ -16,34 +16,27 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    /*font-family: 'Mountains of Christmas', cursive;*/
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
-
 body {
     line-height: 1;
 }
-
 ol, ul {
     list-style: none;
 }
-
 blockquote, q {
     quotes: none;
 }
-
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -52,7 +45,8 @@ table {
 /**actual css */
 * {
     color: whitesmoke;
-    /*font-family: 'Mountains of Christmas', cursive;*/
+    font-family: "Mountains of Christmas", cursive;
+
 }
 
 body {
@@ -78,13 +72,27 @@ select option{
 }
 
 section#content {
-    width: 90%;
-    margin: 0 auto;
+    width: 50%;
+    margin: 10px auto;
     background-color: rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 5px 5px 5px 0 rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 5px 5px 5px 0 rgba(255, 255, 255, 0.5);
-    box-shadow: 5px 5px 5px 0 rgba(255, 255, 255, 0.5);
-    padding: 16px;
+    -webkit-box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+section#content > h1 {
+    margin: 10px auto;
+    text-align: center;
+}
+
+section#content > p {
+    margin: auto auto;
+    text-align: center;
 }
 
 input.long-answer {
@@ -95,7 +103,8 @@ input.long-answer {
 }
 
 #question-form #send-container {
-    margin: 16px auto 0;
+    margin: 0 auto;
+    margin-top: 16px;
 }
 
 #question-form label {
@@ -133,13 +142,14 @@ h2 {
 button.glow {
     position: relative;
     display: block;
-    width: 60px;
+    width: 100px;
     height: 60px;
     text-align: center;
     line-height: 60px;
     background: #171515;
     border-radius: 50%;
     font-size: 30px;
+    color: #666;
     color: #BC5F24;
     transition: .5s;
     cursor: pointer;
@@ -151,11 +161,11 @@ button.glow {
 button.glow:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:50%;
     background: #d35400;
     transition: .5s;
     transform: scale(.9);
@@ -182,3 +192,10 @@ button.glow:hover {
     min-height: 160px;
     margin-left: 30px;
 }
+
+.scoreIcons {
+    margin: auto auto;
+    padding-top: 30px;
+}
+
+

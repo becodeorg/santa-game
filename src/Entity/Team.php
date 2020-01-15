@@ -247,7 +247,7 @@ class Team
     {
         $amount = random_int(1, min(5, $this->points));
 
-        $this->points = $amount;
+        $this->points -= $amount;
         $this->stolenGifts += $amount;
 
         return $amount;
