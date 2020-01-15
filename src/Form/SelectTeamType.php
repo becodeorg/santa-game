@@ -6,6 +6,7 @@ use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,9 +17,15 @@ class SelectTeamType extends AbstractType
         $builder->add('team', EntityType::class, [
             'class' => Team::class,
             'choice_label' => 'name',
+            'placeholder' => 'Select a team',
+        ]);
+        $builder->add('password', TextType::class, [
+            'label' => false,
+            'attr' => ['placeholder' => 'Password', 'class' => 'mt-2'],
         ]);
         $builder->add('submit', SubmitType::class, [
-            'label' => 'Select team'
+            'label' => 'Select team',
+            'attr' => ['class' => 'my-3 btn btn-secondary'],
         ]);
     }
 

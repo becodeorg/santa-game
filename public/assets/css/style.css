@@ -45,6 +45,7 @@ table {
 /**actual css */
 * {
     color: whitesmoke;
+    font-family: "Mountains of Christmas", cursive;
 
 }
 
@@ -62,14 +63,36 @@ footer {
     margin-top: 60px;
 }
 
+select{
+    color: #495057;
+}
+
+select option{
+    color: #495057;
+}
+
 section#content {
     width: 50%;
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(255,255,255,1);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(255,255,255,1);
-    box-shadow: 5px 5px 5px 0px rgba(255,255,255,1);
-    padding: 16px;
+    -webkit-box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    box-shadow: 0 0 5px 5px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    box-shadow: 0 0 5px 5px inset rgba(255,255,255,1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+section#content > h1 {
+    margin: 10px auto;
+    text-align: center;
+}
+
+section#content > p {
+    margin: auto auto;
+    text-align: center;
 }
 
 input.long-answer {
@@ -101,15 +124,6 @@ h2 {
     margin-bottom: 8px;
 }
 
-#select-team select {
-    color: black;
-}
-
-#select-team button {
-    background-color: white;
-    color: black;
-}
-
 #countdown-banner {
     text-align: center;
     font-size: 3em;
@@ -128,7 +142,7 @@ h2 {
 button.glow {
     position: relative;
     display: block;
-    width: 60px;
+    width: 100px;
     height: 60px;
     text-align: center;
     line-height: 60px;
@@ -178,3 +192,10 @@ button.glow:hover {
     min-height: 160px;
     margin-left: 30px;
 }
+
+.scoreIcons {
+    margin: auto auto;
+    padding-top: 30px;
+}
+
+

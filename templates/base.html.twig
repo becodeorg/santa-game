@@ -5,16 +5,25 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
         <link href="{{ asset('assets/css/snow.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <section id="content">
+    {% for label, messages in app.flashes(['warning', 'error']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{#        <section id="content">#}
         {% block body %}{% endblock %}
-        </section>
+{#        </section>#}
 
         <footer>
         <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
