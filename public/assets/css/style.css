@@ -69,6 +69,14 @@ footer {
     margin-top: 60px;
 }
 
+select{
+    color: #495057;
+}
+
+select option{
+    color: #495057;
+}
+
 section#content {
     width: 90%;
     margin: 0 auto;
@@ -105,10 +113,6 @@ h1 {
 h2 {
     font-size: 1.8em;
     margin-bottom: 8px;
-}
-
-#select-team select {
-    color: black;
 }
 
 #countdown-banner {
