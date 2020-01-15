@@ -24,15 +24,21 @@ class SelectTeamController extends AbstractController
         $selectTeamForm->handleRequest($request);
         if ($selectTeamForm->isSubmitted() && $selectTeamForm->isValid()) {
 
-            /** @var Team $team */
-            $team = $selectTeamForm->getData()['team'];
+            /** @var Team $selectedTeam */
+            $selectedTeam = $selectTeamForm->getData()['team'];
 
-            $cookie = new Cookie('team', $team->getId(), strtotime('now + 24 hours'));
-            $res = new Response();
-            $res->headers->setCookie($cookie);
-            $res->send();
+            $givenPassword = $selectTeamForm->getData()['password'];
 
-            return $this->redirect(urldecode($path));
+            if (password_verify($givenPassword,$selectedTeam->getPassword())){
+                $cookie = new Cookie('team', $selectedTeam->getId(), strtotime('now + 24 hours'));
+                $res = new Response();
+                $res->headers->setCookie($cookie);
+                $res->send();
+
+                return $this->redirect(urldecode($path));
+            }
+
+            $this->addFlash('error', 'Wrong password, please try again');
         }
 
         $createTeamForm = $this->createFormBuilder()
