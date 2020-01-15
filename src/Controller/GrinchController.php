@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GrinchController extends AbstractController
@@ -11,27 +14,25 @@ class GrinchController extends AbstractController
     /**
      * @Route("/grinch", name="grinch")
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teams = $this->getDoctrine()->getRepository(Team::class)
-            ->findBy([], [
-                'name' => 'asc'
-            ]);
+        $login = $this->createFormBuilder()
+            ->add('password', PasswordType::class, ['attr' => ['class' => 'my-2']])
+            ->add('login', SubmitType::class)
+            ->getForm();
 
-        if(!empty($_POST['amount']) && is_numeric($_POST['amount'])) {
-            /** @var Team $team */
-            $team = $this->getDoctrine()->getRepository(Team::class)
-                ->find($_POST['team']);
+        $login->handleRequest($request);
 
-            $team->returnGift((int)$_POST['amount']);
+        if ($login->isSubmitted() && $login->isValid()){
+            // TODO check given password vs stored grinch pw
+            // To hardcode or not to hardcode ?
+            // make:user?
 
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('grinch');
+            // -> redirect to grinch home
         }
 
         return $this->render('grinch/index.html.twig', [
-            'teams' => $teams,
+            'login' => $login->createView(),
         ]);
     }
 
@@ -51,5 +52,32 @@ class GrinchController extends AbstractController
         $stmt->execute();
 
         die('grinch reshuffeled!');
+    }
+
+    /**
+     * @Route("/grinch/home", name="grinch_home")
+     */
+    public function grinchHome()
+    {
+        $teams = $this->getDoctrine()->getRepository(Team::class)
+            ->findBy([], [
+                'name' => 'asc'
+            ]);
+
+        if (!empty($_POST['amount']) && is_numeric($_POST['amount'])) {
+            /** @var Team $team */
+            $team = $this->getDoctrine()->getRepository(Team::class)
+                ->find($_POST['team']);
+
+            $team->returnGift((int)$_POST['amount']);
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('grinch');
+        }
+
+        return $this->render('grinch/home.html.twig', [
+            'teams' => $teams,
+        ]);
     }
 }

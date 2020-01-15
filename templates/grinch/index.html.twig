@@ -4,36 +4,12 @@
 
 {% block body %}
     <h1>Grinch control board</h1>
-    <p>Give back presents!</p>
-<div class="d-flex justify-content-center">
-    <table id="team-table" width="50%">
-        <thead>
-        <tr>
-            <th>Team</th>
-            <th width="20%">Presents</th>
-            <th width="20%">Stolen Presents</th>
-            <td>Return gift</td>
-        </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-            {% if team.stolenGifts > 0 %}
-                <tr>
-                    <td>{{ team.name }}</td>
-                    <td>{{ team.points }} <img src="{{ asset('assets/images/icons/026-gift.png') }}" height="32" />
-                    <td>{{ team.stolenGifts }}</td>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" name="team" value="{{ team.id }}" >
-                            <input type="number" class="text-center" name="amount" style="color: black; width: 81px" placeholder="Amount"/>
-                            <input type="submit" value="Return gift" style="background-color: yellow; color: black;">
-                        </form>
-                    </td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+    <p>What is the secret grinch code?</p>
+        <div class="col-lg-3 col-sm-10 mx-auto text-center">
+            {{ form_start(login) }}
+            {{ form_widget(login.password) }}
+            {{ form_widget(login.login) }}
+            {{ form_end(login) }}
+        </div>
 
 {% endblock %}
