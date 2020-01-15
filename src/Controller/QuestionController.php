@@ -21,13 +21,15 @@ class QuestionController extends AbstractController
      */
     public function index(Request $request, Question $question, string $hash)
     {
+
+
         if (!$question->checkHash($hash)) {
             die('Stop tampering with the hash, Badr!');
         }
 
         $selfUri = $this->generateUrl('question', [
             'question' => $question->getId(),
-            'hash' => $hash
+            'hash' => $hash,
         ]);
 
         try {
@@ -57,6 +59,7 @@ class QuestionController extends AbstractController
                 return $this->render('question/wrong-answer.html.twig', [
                     'seconds' => $seconds,
                     'question' => $question,
+                    'team'=> $team
                 ]);
             }
 

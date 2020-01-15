@@ -35,7 +35,7 @@ class SelectTeamController extends AbstractController
                 $res->headers->setCookie($cookie);
                 $res->send();
 
-                return $this->redirect(urldecode($path));
+                return $this->redirectToRoute('team_overview');
             }
 
             $this->addFlash('error', 'Wrong password, please try again');
@@ -63,7 +63,7 @@ class SelectTeamController extends AbstractController
                 $res->headers->setCookie($cookie);
                 $res->send();
 
-                return $this->redirect(urldecode($path));
+                return $this->redirectToRoute("team_overview");
             }
 
             $this->addFlash('error', 'passwords must match');

@@ -5,5 +5,5 @@ namespace App\Domain\Exception;
 
 class TeamNotFoundException Extends \DomainException
 {
-
+    
 }
