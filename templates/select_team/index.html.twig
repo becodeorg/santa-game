@@ -3,9 +3,31 @@
 {% block title %}Select your team!{% endblock %}
 
 {% block body %}
-    <div id="select-team">
-        <h1>Choose your team</h1>
-        {{ form_start(form) }}
-        {{ form_end(form) }}
-    </div>
+    <section class="container p-2" id="content">
+        <div class="row mx-auto">
+            <div class="col-lg-5 col-sm-12">
+                <div id="select-team" class="text-center">
+                    <h1>Choose your team</h1>
+                    {{ form_start(selectTeam) }}
+                    {{ form_widget(selectTeam.team) }}
+                    {{ form_widget(selectTeam.submit) }}
+                    {{ form_end(selectTeam) }}
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-12 text-center my-auto">
+                <em class="mt-sm-3">-or-</em>
+            </div>
+            <div class="col-lg-5 col-sm-12">
+                <div id="create-team" class="text-center">
+                    <h1>Create a team</h1>
+                    {{ form_start(createTeam) }}
+                    {{ form_row(createTeam.name) }}
+                    {{ form_row(createTeam.password) }}
+                    {{ form_row(createTeam.password_verify) }}
+                    {{ form_widget(createTeam.create) }}
+                    {{ form_end(createTeam) }}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

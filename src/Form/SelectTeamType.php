@@ -15,10 +15,10 @@ class SelectTeamType extends AbstractType
     {
         $builder->add('team', EntityType::class, [
             'class' => Team::class,
-            'choice_label' => 'name',
         ]);
         $builder->add('submit', SubmitType::class, [
-            'label' => 'Select team'
+            'label' => 'Select team',
+            'attr' => ['class' => 'my-3 btn btn-secondary'],
         ]);
     }
 
