@@ -13,6 +13,7 @@ class TeamOverviewController extends AbstractController
      */
     public function index()
     {
+
         $teams = $this->getDoctrine()->getRepository(Team::class)
             ->findBy([], [
                 'points' => 'desc'

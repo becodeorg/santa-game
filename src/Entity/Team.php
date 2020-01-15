@@ -185,9 +185,12 @@ class Team
 
     public function canAnswerInSeconds(Question $question) : int
     {
+        $now = (new \DateTimeImmutable())->getTimestamp();
         /** @var WrongAnswer $wrongAnswer */
         foreach($this->wrongAnswers AS $wrongAnswer) {
-            if($wrongAnswer->getQuestion()->getId() === $question->getId()) {
+            if($wrongAnswer->getQuestion()->getId() === $question->getId()
+              && $wrongAnswer->getTimestamp()->getTimestamp() > $now
+            ) {
                 $diff = $wrongAnswer->getTimestamp()->getTimestamp() - (new \DateTimeImmutable())->getTimestamp();
 
                 return max(0, $diff);

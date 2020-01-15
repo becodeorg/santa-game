@@ -100,5 +100,7 @@ class QuestionController extends AbstractController
                 'path' => urlencode($selfUri)
             ]);
         }
+
+        die('boom');
     }
 }
