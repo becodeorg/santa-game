@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Team;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,11 +25,11 @@ class GrinchController extends AbstractController
         $login->handleRequest($request);
 
         if ($login->isSubmitted() && $login->isValid()){
-            // TODO check given password vs stored grinch pw
-            // To hardcode or not to hardcode ?
-            // make:user?
+            $givenPassword = $login->getData()['password'];
+            $grinchUser = $this->getDoctrine()->getRepository(User::class)->findOneBy([]);
+            if($grinchUser->getPassword() === $givenPassword){
 
-            // -> redirect to grinch home
+            }
         }
 
         return $this->render('grinch/index.html.twig', [
