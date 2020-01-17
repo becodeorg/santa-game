@@ -29,13 +29,13 @@ class SelectTeamController extends AbstractController
 
             $givenPassword = $selectTeamForm->getData()['password'];
 
-            if (password_verify($givenPassword,$selectedTeam->getPassword())){
+            if (password_verify($givenPassword, $selectedTeam->getPassword())) {
                 $cookie = new Cookie('team', $selectedTeam->getId(), strtotime('now + 24 hours'));
                 $res = new Response();
                 $res->headers->setCookie($cookie);
                 $res->send();
 
-                return $this->redirectToRoute('team_overview');
+                return $this->redirect(urldecode($path));
             }
 
             $this->addFlash('error', 'Wrong password, please try again');
@@ -50,8 +50,8 @@ class SelectTeamController extends AbstractController
 
         $createTeamForm->handleRequest($request);
 
-        if ($createTeamForm->isSubmitted() && $createTeamForm->isValid()){
-            if($createTeamForm->getData()['password'] === $createTeamForm->getData()['password_verify']){
+        if ($createTeamForm->isSubmitted() && $createTeamForm->isValid()) {
+            if ($createTeamForm->getData()['password'] === $createTeamForm->getData()['password_verify']) {
                 $password = password_hash($createTeamForm->getData()['password'], PASSWORD_DEFAULT);
                 $newTeam = new Team($createTeamForm->getData()['name'], $password);
                 $em = $this->getDoctrine()->getManager();
@@ -63,12 +63,11 @@ class SelectTeamController extends AbstractController
                 $res->headers->setCookie($cookie);
                 $res->send();
 
-                return $this->redirectToRoute("team_overview");
+                return $this->redirect(urldecode($path));
             }
 
             $this->addFlash('error', 'passwords must match');
         }
-
         return $this->render('select_team/index.html.twig', [
             'selectTeam' => $selectTeamForm->createView(),
             'createTeam' => $createTeamForm->createView(),

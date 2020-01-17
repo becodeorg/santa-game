@@ -13,31 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class GrinchController extends AbstractController
 {
     /**
-     * @Route("/grinch", name="grinch")
-     */
-    public function index(Request $request)
-    {
-        $login = $this->createFormBuilder()
-            ->add('password', PasswordType::class, ['attr' => ['class' => 'my-2']])
-            ->add('login', SubmitType::class)
-            ->getForm();
-
-        $login->handleRequest($request);
-
-        if ($login->isSubmitted() && $login->isValid()){
-            $givenPassword = $login->getData()['password'];
-            $grinchUser = $this->getDoctrine()->getRepository(User::class)->findOneBy([]);
-            if($grinchUser->getPassword() === $givenPassword){
-
-            }
-        }
-
-        return $this->render('grinch/index.html.twig', [
-            'login' => $login->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/grinch/shuffle", name="grinch_shuffle")
      */
     public function grinchShuffle()
@@ -56,7 +31,7 @@ class GrinchController extends AbstractController
     }
 
     /**
-     * @Route("/grinch/home", name="grinch_home")
+     * @Route("/grinch", name="grinch_home")
      */
     public function grinchHome()
     {
