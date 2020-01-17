@@ -8,7 +8,9 @@ use App\Entity\Question;
 use App\Entity\Team;
 use App\Entity\WrongAnswer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -18,11 +20,13 @@ class QuestionController extends AbstractController
 
     /**
      * @Route("/q/{question}/{hash}", name="question")
+     * @param Request $request
+     * @param Question $question
+     * @param string $hash
+     * @return RedirectResponse|Response
      */
     public function index(Request $request, Question $question, string $hash)
     {
-
-
         if (!$question->checkHash($hash)) {
             die('Stop tampering with the hash, Badr!');
         }
@@ -79,16 +83,16 @@ class QuestionController extends AbstractController
                     return $this->render('question/success.html.twig', [
                         'question' => $question,
                         'team' => $team,
-                        "teamRanks" => $teamRanks
+                        'teamRanks' => $teamRanks
                     ]);
-                } else {
-                    $wrongAnswer = new WrongAnswer($team, $question);
-                    $team->addWrongAnswer($wrongAnswer);
-
-                    $this->getDoctrine()->getManager()->flush();
-
-                    return $this->redirect($selfUri);
                 }
+
+                $wrongAnswer = new WrongAnswer($team, $question);
+                $team->addWrongAnswer($wrongAnswer);
+
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirect($selfUri);
             }
 
             return $this->render('question/index.html.twig', [
@@ -100,7 +104,5 @@ class QuestionController extends AbstractController
                 'path' => urlencode($selfUri)
             ]);
         }
-
-        die('boom');
     }
 }

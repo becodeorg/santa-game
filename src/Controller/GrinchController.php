@@ -15,7 +15,7 @@ class GrinchController extends AbstractController
     /**
      * @Route("/grinch/shuffle", name="grinch_shuffle")
      */
-    public function grinchShuffle()
+    public function grinchShuffle(): void
     {
         $conn = $this->getDoctrine()->getManager()->getConnection();
         $sql = 'update santa.question set grinch_active = 0';
@@ -27,13 +27,13 @@ class GrinchController extends AbstractController
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
-        die('grinch reshuffeled!');
+        die('grinch re-shuffled!');
     }
 
     /**
      * @Route("/grinch", name="grinch_home")
      */
-    public function grinchHome()
+    public function grinch()
     {
         $teams = $this->getDoctrine()->getRepository(Team::class)
             ->findBy([], [
@@ -49,7 +49,7 @@ class GrinchController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('grinch');
+            return $this->redirectToRoute('grinch_home');
         }
 
         return $this->render('grinch/home.html.twig', [

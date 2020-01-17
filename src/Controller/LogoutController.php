@@ -11,8 +11,10 @@ class LogoutController extends AbstractController
 {
     /**
      * @Route("/logout", name="logout")
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function index(Request $request)
+    public function index(Request $request): RedirectResponse
     {
         unset($_COOKIE['team']);
         setcookie('team', '', time()-3600, '/');
